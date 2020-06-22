@@ -12,8 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Notifications\courseUpdated;
+use App\User;
 
 Route::get('/', function () {
+    //User::find(1)->notify(new courseUpdated);
+    $users=User::all();
+    Notification::send($users, new courseUpdated());
     return view('welcome');
 });
 
