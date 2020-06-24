@@ -47,6 +47,7 @@ class StoryAssigned extends Notification implements ShouldQueue
         $id = $this->story->id;
 
         return (new MailMessage)
+                    ->from('Appslanka@gmail.com', 'AppsLanka')
                     ->line('You have been assigned to a story.')
                     ->line("The title of the story is #{$id} {$title}")
                     ->action('View story', url('/'))
